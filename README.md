@@ -32,9 +32,9 @@ Moreover, by performing further testing I also found out additional manipulation
 ### **Strategy**
 The strategy used to solve the challenge is based on 3 main steps that repeat until the current web page evades the target ML classifiers:
 1. Select an HTML tag (for example from a given set) and inject it into the web page.
-2. Ensure that the rendering is preserved.
+2. Check whether the original rendering is preserved.
 3. Get the classification scores (one for each ML model) through the API provided by the competition as feedback (reward):
-   - If the scores are decreased, as for the next HTML tag to be selected, we can either choose an HTML tags of the same type (to check whether increasing the number of the previously added tags futher reduces the scores) or try a different type.  
+   - If the scores are decreased, as for the next HTML tag to be selected, we can either choose an HTML tags of the same type (to check whether increasing the number of the previously added tags further reduces the scores) or try a different type.  
    - Otherwise, it means that the added HTML element is not effective in decreasing the scores. So, remove it and try a new one of a different type.  
 Moreover, in this competition I found particularly useful to inject some copies of the same tag instead of a single one to speed up the evasion.
 
