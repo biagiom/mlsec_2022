@@ -26,8 +26,9 @@ Using this approach, the ML models are still sensitive to the injected HTML tags
 
 Moreover, by performing further testing I also found out additional manipulations that resulted effective in decreasing the classification score:
 - Changing the type of `password` `<input>` tags to `text` (like in `<input type="password" .../>` ⟶ `<input type="text" .../>`).
+  The target ML models revealed quite sensitive to the presence of password `<input>` tag. In fact, this is very common in phishing web pages (all the phishing samples of the challenge included a form with a `password` `<input>` tag).
 - Adding random JS code nested in `<noscript></noscript>` into the `<head></head>` and `<body></body>` of the sample web pages.
-- Moving the CSS code from `<head></head>` to `<body></body>` (useful for those web pages with a lot of CSS code in `<head></head>`).
+- Moving the CSS code from `<head></head>` to `<body></body>` (mainly effective for those web pages with a lot of CSS code in `<head></head>`).
 
 ### **Strategy**
 The strategy used to solve the challenge is based on 3 main steps that repeat until the current web page evades the target ML classifiers:
